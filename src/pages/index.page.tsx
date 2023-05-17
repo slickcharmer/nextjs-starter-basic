@@ -10,7 +10,9 @@ import withWrapper from "@/hoc/withWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import { Item } from "@/components/list";
-import Imgs from '@/constants/imgs';
+import Imgs from "@/constants/imgs";
+import Image from "next/image";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -115,10 +117,10 @@ export default function Pages() {
                     className="mySwiper"
                 >
                     <SwiperSlide>
-                        <img src={Bg.src} />
+                        <Image fill objectFit="cover" src={Bg.src} alt="slide-img" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src={Bg2.src} />
+                        <Image fill objectFit="cover" src={Bg2.src} alt="slide-img" />
                     </SwiperSlide>
                 </Swiper>
             </HeroSlideWrapper>
