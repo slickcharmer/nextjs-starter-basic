@@ -3,7 +3,7 @@ import Flex from "@/components/flex";
 import List from "@/components/list";
 import Heading from '@/components/heading';
 import GlobalStyle from "./global.style";
-import { FeatureSectionSlideGrid, FeatureSectionSlideWrapper, FeatureSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay } from "./index.style";
+import { FeatureSectionSlideGrid, PopularAreaSectionWrapper, FeatureSectionSlideWrapper, FeatureSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay } from "./index.style";
 import Text from "@/components/text";
 import withWrapper from "@/hoc/withWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -189,15 +189,40 @@ const FeaturedSection = () => {
     )
 }
 
+const PopularAreaSection = () => {
+    return (
+        <Flex $align="center" $justify="space-between">
+            <Flex $col $gap={1} $maxWidth={25}>
+                <Heading $color="white">Popluar Areas</Heading>
+                <Flex $col $gap={1}>
+                    <Heading $level={7} $color="white">
+                        As well as being positioned on one of the exclusive Fronds of Palm Jumerah.
+                    </Heading>
+                    <Heading $level={7} $color="white">
+                        It now features the architectural talents of Chakib Richani, att from the Tabari Gallery and a host of unique touches including Flos lighting and furniture from Minotti, Poltrona Frau, Bocci and Giorgetti.
+                    </Heading>
+                </Flex>
+            </Flex>
+            <Flex $gap={2} $align="center">
+                    <Image width={200} height={400} src={Imgs.Card} alt="card-image" className="image" />
+                    <Image width={250} height={500} src={Imgs.Card2} alt="card-image" className="image" />
+                    <Image width={200} height={400} src={Imgs.Card3} alt="card-image" className="image" />
+            </Flex>
+        </Flex>
+    )
+}
+
 FeaturedSection.displayName = 'FeaturedSection';
 HeroSection.displayName = 'HeroSection';
 Header.displayName = 'Header';
+PopularAreaSection.displayName = 'PopularAreaSection';
 
 export default function Pages() {
 
     const HeaderWithWrapper = withWrapper(Header);
     const HeroSectionWithWrapper = withWrapper(HeroSection);
     const FeatureWithWrapper = withWrapper(FeaturedSection);
+    const PopularAreaSectionWithWrapper = withWrapper(PopularAreaSection);
 
     return (
         <main>
@@ -236,6 +261,9 @@ export default function Pages() {
             <FeatureSectionWrapper>
                 <FeatureWithWrapper />
             </FeatureSectionWrapper>
+            <PopularAreaSectionWrapper>
+                <PopularAreaSectionWithWrapper />
+            </PopularAreaSectionWrapper>
         </main>
     )
 }
