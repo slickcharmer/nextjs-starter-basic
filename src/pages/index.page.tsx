@@ -3,7 +3,7 @@ import Flex from "@/components/flex";
 import List from "@/components/list";
 import Heading from '@/components/heading';
 import GlobalStyle from "./global.style";
-import { FeatureSectionSlideGrid, PopularAreaSectionWrapper, FeatureSectionSlideWrapper, FeatureSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay } from "./index.style";
+import { FeatureSectionSlideGrid, ViewDetailSectionWrapper, PopularAreaSectionWrapper, FeatureSectionSlideWrapper, FeatureSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay, OffPlanSectionWrapper } from "./index.style";
 import Text from "@/components/text";
 import withWrapper from "@/hoc/withWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +16,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const { Bg, Bg2 } = Imgs;
+const { Bg, Bg2, Card4, Card5, Card6, Card7, Card8 } = Imgs;
 
 
 const Header = () => {
@@ -212,6 +212,35 @@ const PopularAreaSection = () => {
     )
 }
 
+const ViewDetailSection = () => {
+    return(
+        <Flex $col $align="flex-start" $gap={2}>
+            <Flex $col $gap={1}>
+                <Heading $color="white" level={6}>Modern Architecture</Heading>
+                <Heading $color="white">DOWNTOWN DUBAI VILLA</Heading>
+            </Flex>
+            <Button $bg="white" $color="black">
+                <Text $level={7}>VIEW DETAILS</Text>
+            </Button>
+        </Flex>
+    )
+}
+
+const OffPlanSection = () => {
+    return(
+        <Flex $col $align="center" $gap={3}>
+            <Heading $color="white">Off-Plan properties</Heading>
+            <Flex $gap={2}>
+                <Image width={250} height={500} src={Card4.src} alt="card-image" />
+                <Image width={250} height={500} src={Card5.src} alt="card-image" />
+                <Image width={250} height={500} src={Card6.src} alt="card-image" />
+                <Image width={250} height={500} src={Card7.src} alt="card-image" />
+                <Image width={250} height={500} src={Card8.src} alt="card-image" />
+            </Flex>
+        </Flex>
+    )
+}
+
 FeaturedSection.displayName = 'FeaturedSection';
 HeroSection.displayName = 'HeroSection';
 Header.displayName = 'Header';
@@ -223,6 +252,8 @@ export default function Pages() {
     const HeroSectionWithWrapper = withWrapper(HeroSection);
     const FeatureWithWrapper = withWrapper(FeaturedSection);
     const PopularAreaSectionWithWrapper = withWrapper(PopularAreaSection);
+    const ViewDetailSectionWithWrapper = withWrapper(ViewDetailSection);
+    const OffPlanSectionWithWrapper = withWrapper(OffPlanSection);
 
     return (
         <main>
@@ -264,6 +295,12 @@ export default function Pages() {
             <PopularAreaSectionWrapper>
                 <PopularAreaSectionWithWrapper />
             </PopularAreaSectionWrapper>
+            <ViewDetailSectionWrapper>
+                <ViewDetailSectionWithWrapper />
+            </ViewDetailSectionWrapper>
+            <OffPlanSectionWrapper>
+                <OffPlanSectionWithWrapper/>
+            </OffPlanSectionWrapper>
         </main>
     )
 }
