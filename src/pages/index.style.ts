@@ -8,6 +8,7 @@ export const HeroSectionWraper = styled.section`
     justify-content:center;
     position:absolute;
     z-index:10;
+    width:100%;
 `
 
 
@@ -25,4 +26,27 @@ export const HeroSlideWrapper = styled.div`
     justify-content:center;
     align-items:center;
     z-index:5;
+`
+
+export const Overlay = styled.div`
+    background-color:rgba(0,0,0,0.6);
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:10;
+`
+
+export const FeatureSectionWrapper = styled.section`
+    padding-top:5rem;
+    padding-bottom:5rem;
+`
+
+export const FeatureSectionSlideGrid = styled.div`
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0px, 1fr));
+    gap:2rem;
+`
+
+export const FeatureSectionSlideWrapper = styled.div`
+    height:15rem;
 `

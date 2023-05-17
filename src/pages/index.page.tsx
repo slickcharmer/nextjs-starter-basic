@@ -3,12 +3,11 @@ import Flex from "@/components/flex";
 import List from "@/components/list";
 import Heading from '@/components/heading';
 import GlobalStyle from "./global.style";
-import { HeaderWrapper, HeroSectionWraper, HeroSlideWrapper } from "./index.style";
+import { FeatureSectionSlideGrid, FeatureSectionSlideWrapper, FeatureSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay } from "./index.style";
 import Text from "@/components/text";
-import Input from "@/components/input";
 import withWrapper from "@/hoc/withWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 import { Item } from "@/components/list";
 import Imgs from "@/constants/imgs";
 import Image from "next/image";
@@ -16,6 +15,9 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
+const { Bg, Bg2 } = Imgs;
+
 
 const Header = () => {
 
@@ -29,9 +31,14 @@ const Header = () => {
                 <Item>Rent</Item>
                 <Item>Properties</Item>
             </List>
-            <Button>
-                <Text $level={7}>Sign in</Text>
-            </Button>
+            <Flex $gap={1}>
+                <Button>
+                    <Text $level={7}>Become a Host</Text>
+                </Button>
+                <Button>
+                    <Text $level={7}>Sign in</Text>
+                </Button>
+            </Flex>
         </Flex>
     )
 }
@@ -43,26 +50,7 @@ const HeroSection = () => {
             <Flex $align="flex-start" $col $maxWidth={40} $gap={3}>
                 <Heading $color="white" $level={1}>Dubai dominates as top choice for UHNW primary residents</Heading>
                 <Button $bg="white" $color="black">
-                    <Text $level={7}>Learn More</Text>
-                </Button>
-            </Flex>
-            <Flex $col $bg="white" $gap={2} $radius={1} $padding='1rem' $maxWidth={25} $flex>
-                <Flex $col $gap={1}>
-                    <Flex $col $gap={0.5}>
-                        <Heading $level={7}>Property</Heading>
-                        <Input placeholder="Seaside Hills" />
-                    </Flex>
-                    <Flex $col $gap={0.5}>
-                        <Heading $level={7}>Location</Heading>
-                        <Input placeholder="Boulevard, MTC+X0" />
-                    </Flex>
-                    <Flex $col $gap={0.5}>
-                        <Heading $level={7}>Price Range</Heading>
-                        <Input placeholder="132,220" />
-                    </Flex>
-                </Flex>
-                <Button>
-                    <Text $level={7}>Find your property</Text>
+                    <Text $level={7}>Get Started</Text>
                 </Button>
             </Flex>
         </Flex>
@@ -71,14 +59,132 @@ const HeroSection = () => {
 
 const FeaturedSection = () => {
     return (
-        <Flex $justify="space-between">
-            <Heading $color="white">Featured Apartments</Heading>
-            <Heading $color="white" $level={7} $maxWidth={30}>Delattio’s International Realty is excited to present the listing for this
-                bespoke 4-bedroom Garden Homes villa on Frond N, Palm Jumeirah.
+        <Flex $col $gap={3}>
+            <Flex $justify="space-between">
+                <Heading $color="white">Featured Apartments</Heading>
+                <Heading $color="white" $level={7} $maxWidth={30}>Delattio’s International Realty is excited to present the listing for this
+                    bespoke 4-bedroom Garden Homes villa on Frond N, Palm Jumeirah.
 
-                As well as being positioned on one of the exclusive Fronds of Palm Jumeirah,
-                this exceptional Garden Homes villa has been expertly designed and fully
-                customised to create a dream luxury property.</Heading>
+                    As well as being positioned on one of the exclusive Fronds of Palm Jumeirah,
+                    this exceptional Garden Homes villa has been expertly designed and fully
+                    customised to create a dream luxury property.</Heading>
+            </Flex>
+            <FeatureSectionSlideGrid>
+                <Flex $col $gap={2}>
+                    <FeatureSectionSlideWrapper>
+                        <Swiper
+                            slidesPerView={1}
+                            spaceBetween={30}
+                            loop={true}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            navigation={true}
+                            modules={[Autoplay, Pagination, Navigation]}
+                        >
+                            <SwiperSlide>
+                                <Overlay />
+                                <Image fill objectFit="cover" src={Bg.src} alt="slide-img" />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Overlay />
+                                <Image fill objectFit="cover" src={Bg2.src} alt="slide-img" />
+                            </SwiperSlide>
+                        </Swiper>
+                    </FeatureSectionSlideWrapper>
+                    <Flex $col $gap={1}>
+                        <Heading $color="white" $level={7}>DOWNTOWN DUBAI PENTHOUSE</Heading>
+                        <Flex>
+                            <Text $color="white" $level={7}>PENTHOUSE</Text>
+                            <Text $color="white" $level={7}>3 BEDS</Text>
+                            <Text $color="white" $level={7}>13,000 SQ.FT</Text>
+                            <Text $color="white" $level={7}>READY</Text>
+                        </Flex>
+                        <Heading $color="white" level={7}>AED 144,220,00</Heading>
+                    </Flex>
+                </Flex>
+                <Flex $col $gap={2}>
+                    <FeatureSectionSlideWrapper>
+                        <Swiper
+                            slidesPerView={1}
+                            spaceBetween={30}
+                            loop={true}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            navigation={true}
+                            modules={[Autoplay, Pagination, Navigation]}
+                        >
+                            <SwiperSlide>
+                                <Overlay />
+                                <Image fill objectFit="cover" src={Bg.src} alt="slide-img" />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Overlay />
+                                <Image fill objectFit="cover" src={Bg2.src} alt="slide-img" />
+                            </SwiperSlide>
+                        </Swiper>
+                    </FeatureSectionSlideWrapper>
+                    <Flex $col $gap={1}>
+                        <Heading $color="white" $level={7}>DOWNTOWN DUBAI PENTHOUSE</Heading>
+                        <Flex>
+                            <Text $color="white" $level={7}>PENTHOUSE</Text>
+                            <Text $color="white" $level={7}>3 BEDS</Text>
+                            <Text $color="white" $level={7}>13,000 SQ.FT</Text>
+                            <Text $color="white" $level={7}>READY</Text>
+                        </Flex>
+                        <Heading $color="white" level={7}>AED 144,220,00</Heading>
+                    </Flex>
+                </Flex>
+                <Flex $col $gap={2}>
+                    <FeatureSectionSlideWrapper>
+                        <Swiper
+                            slidesPerView={1}
+                            spaceBetween={30}
+                            loop={true}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            navigation={true}
+                            modules={[Autoplay, Pagination, Navigation]}
+                        >
+                            <SwiperSlide>
+                                <Overlay />
+                                <Image fill objectFit="cover" src={Bg.src} alt="slide-img" />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Overlay />
+                                <Image fill objectFit="cover" src={Bg2.src} alt="slide-img" />
+                            </SwiperSlide>
+                        </Swiper>
+                    </FeatureSectionSlideWrapper>
+                    <Flex $col $gap={1}>
+                        <Heading $color="white" $level={7}>DOWNTOWN DUBAI PENTHOUSE</Heading>
+                        <Flex>
+                            <Text $color="white" $level={7}>PENTHOUSE</Text>
+                            <Text $color="white" $level={7}>3 BEDS</Text>
+                            <Text $color="white" $level={7}>13,000 SQ.FT</Text>
+                            <Text $color="white" $level={7}>READY</Text>
+                        </Flex>
+                        <Heading $color="white" level={7}>AED 144,220,00</Heading>
+                    </Flex>
+                </Flex>
+            </FeatureSectionSlideGrid>
         </Flex>
     )
 }
@@ -93,8 +199,6 @@ export default function Pages() {
     const HeroSectionWithWrapper = withWrapper(HeroSection);
     const FeatureWithWrapper = withWrapper(FeaturedSection);
 
-    const { Bg, Bg2 } = Imgs;
-
     return (
         <main>
             <GlobalStyle />
@@ -108,25 +212,30 @@ export default function Pages() {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
+                    centeredSlides={true}
                     loop={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
                     pagination={{
                         clickable: true,
                     }}
-                    navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper"
+                    modules={[Autoplay, Pagination, Navigation]}
                 >
                     <SwiperSlide>
+                        <Overlay />
                         <Image fill objectFit="cover" src={Bg.src} alt="slide-img" />
                     </SwiperSlide>
                     <SwiperSlide>
+                        <Overlay />
                         <Image fill objectFit="cover" src={Bg2.src} alt="slide-img" />
                     </SwiperSlide>
                 </Swiper>
             </HeroSlideWrapper>
-            <section>
+            <FeatureSectionWrapper>
                 <FeatureWithWrapper />
-            </section>
+            </FeatureSectionWrapper>
         </main>
     )
 }
