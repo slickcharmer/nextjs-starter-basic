@@ -17,7 +17,7 @@ export default function List({ children, ...rest }: ListProps) {
     )
 }
 
-List.Item = ({ children, ...rest }: ListProps) => {
+export function Item ({ children, ...rest }: ListProps) {
     return (
         <StyledItem {...rest}>
             {
@@ -26,3 +26,4 @@ List.Item = ({ children, ...rest }: ListProps) => {
         </StyledItem>
     )
 }
+
