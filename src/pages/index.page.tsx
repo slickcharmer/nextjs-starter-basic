@@ -7,7 +7,7 @@ import { FeatureSectionSlideGrid, FeatureSectionSlideWrapper, FeatureSectionWrap
 import Text from "@/components/text";
 import withWrapper from "@/hoc/withWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 import { Item } from "@/components/list";
 import Imgs from "@/constants/imgs";
 import Image from "next/image";
@@ -79,9 +79,13 @@ const FeaturedSection = () => {
                             pagination={{
                                 clickable: true,
                             }}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
                             navigation={true}
-                            modules={[Pagination, Navigation]}
-                            className="mySwiper"
+                            modules={[Autoplay, Pagination, Navigation]}
                         >
                             <SwiperSlide>
                                 <Overlay />
@@ -113,9 +117,13 @@ const FeaturedSection = () => {
                             pagination={{
                                 clickable: true,
                             }}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
                             navigation={true}
-                            modules={[Pagination, Navigation]}
-                            className="mySwiper"
+                            modules={[Autoplay, Pagination, Navigation]}
                         >
                             <SwiperSlide>
                                 <Overlay />
@@ -147,9 +155,13 @@ const FeaturedSection = () => {
                             pagination={{
                                 clickable: true,
                             }}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
                             navigation={true}
-                            modules={[Pagination, Navigation]}
-                            className="mySwiper"
+                            modules={[Autoplay, Pagination, Navigation]}
                         >
                             <SwiperSlide>
                                 <Overlay />
@@ -200,11 +212,16 @@ export default function Pages() {
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
+                    centeredSlides={true}
                     loop={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
                     pagination={{
                         clickable: true,
                     }}
-                    modules={[Pagination, Navigation]}
+                    modules={[Autoplay, Pagination, Navigation]}
                 >
                     <SwiperSlide>
                         <Overlay />
