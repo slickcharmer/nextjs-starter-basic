@@ -11,7 +11,6 @@ export const HeroSectionWraper = styled.section`
     width:100%;
 `
 
-
 export const HeaderWrapper = styled.header`
     position:absolute;
     width:100%;
@@ -49,4 +48,7 @@ export const FeatureSectionSlideGrid = styled.div`
 
 export const FeatureSectionSlideWrapper = styled.div`
     height:15rem;
+`
+
+export const PopularAreaSectionWrapper = styled.section`
 `
