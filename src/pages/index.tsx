@@ -9,15 +9,13 @@ import Input from "@/components/input";
 import withWrapper from "@/hoc/withWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
+import { Item } from "@/components/list";
 import Imgs from '@/constants/imgs';
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Header = () => {
-
-    const { Item } = List;
 
     return (
         <Flex $flex $align="center" $justify="space-between">
@@ -82,6 +80,10 @@ const FeaturedSection = () => {
         </Flex>
     )
 }
+
+FeaturedSection.displayName = 'FeaturedSection';
+HeroSection.displayName = 'HeroSection';
+Header.displayName = 'Header';
 
 export default function Pages() {
 
