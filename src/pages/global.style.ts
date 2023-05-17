@@ -67,7 +67,6 @@ const GlobalStyle = createGlobalStyle`
         margin:0;
       }
       .swiper {
-        color:white;
         width: 100%;
         height: 100%;
       }
@@ -76,5 +75,6 @@ const GlobalStyle = createGlobalStyle`
 export const ContentWrapper = styled.div`
       max-width:var(--content-width);
       width:100vw;
+      padding:1rem;
 `
 export default GlobalStyle;

@@ -8,6 +8,7 @@ interface StyledHeadingProps {
 }
 
 const StyledHeading = styled.h1<StyledHeadingProps>`
+  font-family:'Cormorant Garamond';
   ${({ $level }) => `font-size: var(--font-${$level})`};
   ${({ $cursor }) => $cursor ? 'cursor: pointer' : 'cursor: default'};
   ${({ $color }) => $color && `color:${$color}`};
