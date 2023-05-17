@@ -71,12 +71,6 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
       }
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
 `
 
 export const ContentWrapper = styled.div`
