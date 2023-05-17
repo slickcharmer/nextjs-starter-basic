@@ -13,5 +13,6 @@ export const StyledList = styled.ul<StyledListProps>`
 `
 
 export const StyledItem = styled.li`
+    font-family:Roboto;
     color:white;
 `
