@@ -7,7 +7,7 @@ interface HeadingProps {
     [key: string]: any;
 }
 
-const Heading = ({ level=3, children, ...rest }: HeadingProps) => {
+export default function Heading ({ level=3, children, ...rest }: HeadingProps) {
     return(
         <StyledHeading $level={level} as={`h${level}`} {...rest}>
             {
@@ -16,5 +16,3 @@ const Heading = ({ level=3, children, ...rest }: HeadingProps) => {
         </StyledHeading>
     )
 }
-
-export default Heading;
