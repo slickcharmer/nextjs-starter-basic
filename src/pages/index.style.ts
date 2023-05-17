@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Imgs from "@/constants/imgs";
 
 export const HeroSectionWraper = styled.section`
     background-size:cover;
@@ -51,4 +52,19 @@ export const FeatureSectionSlideWrapper = styled.div`
 `
 
 export const PopularAreaSectionWrapper = styled.section`
+    padding-bottom:5rem;
+`
+
+export const ViewDetailSectionWrapper = styled.section`
+    height:100vh;
+    background-image:url(${Imgs.Bg3.src});
+    background-size:cover;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+`
+
+export const OffPlanSectionWrapper = styled.section`
+    padding-top:5rem;
 `
