@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import GlobalStyle from "../global.style";
-import { ViewDetailSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay, FullPageWrapper } from "./index.style";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper";
-import Imgs from "@/constants/imgs";
-import Image from "next/image";
-import debounce from "@/utils/debounce";
+
 import FeaturedSection from "./components/feature.component";
 import PopularAreaSection from "./components/popular.component";
 import ViewDetailSection from "./components/detail.component";
@@ -12,11 +13,14 @@ import OffPlanSection from "./components/offplan.component";
 import Header from "./components/header";
 import HeroSection from "./components/hero.component";
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import Imgs from "@/constants/imgs";
+import Image from "next/image";
+import debounce from "@/utils/debounce";
 
-import { useEffect, useState } from "react";
+import { ViewDetailSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay, FullPageWrapper } from "./index.style";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper";
+
 
 const { Bg, Bg2 } = Imgs;
 
