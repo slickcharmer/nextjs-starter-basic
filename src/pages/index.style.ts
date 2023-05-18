@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Imgs from "@/constants/imgs";
 
-const FullPageWrapper = styled.section`
+export const FullPageWrapper = styled.section`
     height:100vh;
     position:absolute;
     top:100vh;
@@ -51,23 +51,19 @@ export const Overlay = styled.div`
     z-index:10;
 `
 
-export const FeatureSectionWrapper = styled(FullPageWrapper)`
-    padding-top:5rem;
-    padding-bottom:5rem;
-`
-
 export const FeatureSectionSlideGrid = styled.div`
     display:grid;
+    align-items:center;
     grid-template-columns:repeat(3, minmax(0px, 1fr));
     gap:2rem;
+   
+    &>*:nth-child(2) > div:first-child {
+        height:20rem;
+    }
 `
 
 export const FeatureSectionSlideWrapper = styled.div`
     height:15rem;
-`
-
-export const PopularAreaSectionWrapper = styled(FullPageWrapper)`
-    padding-bottom:5rem;
 `
 
 export const ViewDetailSectionWrapper = styled(FullPageWrapper)`
@@ -75,6 +71,8 @@ export const ViewDetailSectionWrapper = styled(FullPageWrapper)`
     background-size:cover;
 `
 
-export const OffPlanSectionWrapper = styled(FullPageWrapper)`
-    padding-top:5rem;
+export const OffPlanSectionImageWrapper = styled.div`
+    &:nth-child(even) {
+        padding-top:2rem;
+    }
 `

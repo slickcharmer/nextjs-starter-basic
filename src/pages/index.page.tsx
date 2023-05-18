@@ -3,7 +3,7 @@ import Flex from "@/components/flex";
 import List from "@/components/list";
 import Heading from '@/components/heading';
 import GlobalStyle from "./global.style";
-import { FeatureSectionSlideGrid, ViewDetailSectionWrapper, PopularAreaSectionWrapper, FeatureSectionSlideWrapper, FeatureSectionWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay, OffPlanSectionWrapper } from "./index.style";
+import { FeatureSectionSlideGrid, OffPlanSectionImageWrapper, ViewDetailSectionWrapper, FeatureSectionSlideWrapper, HeaderWrapper, HeroSectionWraper, HeroSlideWrapper, Overlay, FullPageWrapper } from "./index.style";
 import Text from "@/components/text";
 import withWrapper from "@/hoc/withWrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -233,12 +233,30 @@ const OffPlanSection = () => {
         <Flex $col $align="center" $gap={3}>
             <Heading $color="white">Off-Plan properties</Heading>
             <Flex $gap={2}>
-                <Image width={250} height={500} src={Card4.src} alt="card-image" />
-                <Image width={250} height={500} src={Card5.src} alt="card-image" />
-                <Image width={250} height={500} src={Card6.src} alt="card-image" />
-                <Image width={250} height={500} src={Card7.src} alt="card-image" />
-                <Image width={250} height={500} src={Card8.src} alt="card-image" />
+                <OffPlanSectionImageWrapper>
+                    <Image width={250} height={500} src={Card4.src} alt="card-image" />
+                </OffPlanSectionImageWrapper>
+                <OffPlanSectionImageWrapper>
+                    <Image width={250} height={500} src={Card5.src} alt="card-image" />
+                </OffPlanSectionImageWrapper>
+                <OffPlanSectionImageWrapper>
+                    <Image width={250} height={500} src={Card6.src} alt="card-image" />
+                </OffPlanSectionImageWrapper>
+                <OffPlanSectionImageWrapper>
+                    <Image width={250} height={500} src={Card7.src} alt="card-image" />
+                </OffPlanSectionImageWrapper>
+                <OffPlanSectionImageWrapper>
+                    <Image width={250} height={500} src={Card8.src} alt="card-image" />
+                </OffPlanSectionImageWrapper>
             </Flex>
+        </Flex>
+    )
+}
+
+const ContactUsSection = () => {
+    return(
+        <Flex>
+
         </Flex>
     )
 }
@@ -257,6 +275,8 @@ export default function Pages() {
     const PopularAreaSectionWithWrapper = withWrapper(PopularAreaSection);
     const ViewDetailSectionWithWrapper = withWrapper(ViewDetailSection);
     const OffPlanSectionWithWrapper = withWrapper(OffPlanSection);
+    const ContactUsWithWrapper = withWrapper(ContactUsSection);
+    
     const [currentPage, setCurrentPage] = useState(0);
     const [direction, setDirection] = useState(true);
 
@@ -331,18 +351,21 @@ export default function Pages() {
                     </SwiperSlide>
                 </Swiper>
             </HeroSlideWrapper>
-            <FeatureSectionWrapper id="fullpage_1">
+            <FullPageWrapper id="fullpage_1">
                 <FeatureWithWrapper />
-            </FeatureSectionWrapper>
-            <PopularAreaSectionWrapper id="fullpage_2">
+            </FullPageWrapper>
+            <FullPageWrapper id="fullpage_2">
                 <PopularAreaSectionWithWrapper />
-            </PopularAreaSectionWrapper>
+            </FullPageWrapper>
             <ViewDetailSectionWrapper id="fullpage_3">
                 <ViewDetailSectionWithWrapper />
             </ViewDetailSectionWrapper>
-            <OffPlanSectionWrapper id="fullpage_4">
+            <FullPageWrapper id="fullpage_4">
                 <OffPlanSectionWithWrapper />
-            </OffPlanSectionWrapper>
+            </FullPageWrapper>
+            <section>
+                <ContactUsWithWrapper/>
+            </section>
         </main>
     )
 }
