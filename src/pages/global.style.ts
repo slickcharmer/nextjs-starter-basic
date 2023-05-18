@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
         background-color:black;
+        overflow:hidden;
       }
       *, *::before, *::after {
         box-sizing: inherit;

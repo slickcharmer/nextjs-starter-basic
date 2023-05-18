@@ -11,10 +11,12 @@ import { Pagination, Navigation, Autoplay } from "swiper";
 import { Item } from "@/components/list";
 import Imgs from "@/constants/imgs";
 import Image from "next/image";
+import debounce from "@/utils/debounce";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useEffect, useState } from "react";
 
 const { Bg, Bg2, Card4, Card5, Card6, Card7, Card8 } = Imgs;
 
@@ -204,16 +206,16 @@ const PopularAreaSection = () => {
                 </Flex>
             </Flex>
             <Flex $gap={2} $align="center">
-                    <Image width={200} height={400} src={Imgs.Card} alt="card-image" className="image" />
-                    <Image width={250} height={500} src={Imgs.Card2} alt="card-image" className="image" />
-                    <Image width={200} height={400} src={Imgs.Card3} alt="card-image" className="image" />
+                <Image width={200} height={400} src={Imgs.Card} alt="card-image" className="image" />
+                <Image width={250} height={500} src={Imgs.Card2} alt="card-image" className="image" />
+                <Image width={200} height={400} src={Imgs.Card3} alt="card-image" className="image" />
             </Flex>
         </Flex>
     )
 }
 
 const ViewDetailSection = () => {
-    return(
+    return (
         <Flex $col $align="flex-start" $gap={2}>
             <Flex $col $gap={1}>
                 <Heading $color="white" level={6}>Modern Architecture</Heading>
@@ -227,7 +229,7 @@ const ViewDetailSection = () => {
 }
 
 const OffPlanSection = () => {
-    return(
+    return (
         <Flex $col $align="center" $gap={3}>
             <Heading $color="white">Off-Plan properties</Heading>
             <Flex $gap={2}>
@@ -246,6 +248,7 @@ HeroSection.displayName = 'HeroSection';
 Header.displayName = 'Header';
 PopularAreaSection.displayName = 'PopularAreaSection';
 
+
 export default function Pages() {
 
     const HeaderWithWrapper = withWrapper(Header);
@@ -254,6 +257,45 @@ export default function Pages() {
     const PopularAreaSectionWithWrapper = withWrapper(PopularAreaSection);
     const ViewDetailSectionWithWrapper = withWrapper(ViewDetailSection);
     const OffPlanSectionWithWrapper = withWrapper(OffPlanSection);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [direction, setDirection] = useState(true);
+
+    
+    useEffect(() => {
+        window.addEventListener('keydown', changeCurrentPageWithDebounce);
+        return () => window.removeEventListener('keydown', changeCurrentPageWithDebounce);
+    }, [currentPage])
+    
+    useEffect(() => {
+        animateFullPage();
+    }, [currentPage])
+    
+    const changeCurrentPage = (e: any) => {
+        if (e.key === "ArrowDown") {
+            if (currentPage < 4) {
+                setCurrentPage(previous => previous + 1);
+                setDirection(true);
+            }
+        }
+        if (e.key === "ArrowUp") {
+            if (currentPage !== 0) {
+                setDirection(false);
+                setCurrentPage(previous => previous - 1);
+            }
+        }
+    }
+
+    const changeCurrentPageWithDebounce = debounce(changeCurrentPage, 100);
+    
+    const animateFullPage = () => {
+        const obj: any = document.querySelector(`#fullpage_` + (direction ? currentPage : currentPage + 1));
+        if (obj !== null && direction) {
+            obj.style.top = "0px";
+        }
+        if (obj !== null && !direction) {
+            obj.style.top = "100vh";
+        }
+    }
 
     return (
         <main>
@@ -261,7 +303,7 @@ export default function Pages() {
             <HeaderWrapper>
                 <HeaderWithWrapper />
             </HeaderWrapper>
-            <HeroSlideWrapper>
+            <HeroSlideWrapper id="fullpage_0">
                 <HeroSectionWraper>
                     <HeroSectionWithWrapper />
                 </HeroSectionWraper>
@@ -289,17 +331,17 @@ export default function Pages() {
                     </SwiperSlide>
                 </Swiper>
             </HeroSlideWrapper>
-            <FeatureSectionWrapper>
+            <FeatureSectionWrapper id="fullpage_1">
                 <FeatureWithWrapper />
             </FeatureSectionWrapper>
-            <PopularAreaSectionWrapper>
+            <PopularAreaSectionWrapper id="fullpage_2">
                 <PopularAreaSectionWithWrapper />
             </PopularAreaSectionWrapper>
-            <ViewDetailSectionWrapper>
+            <ViewDetailSectionWrapper id="fullpage_3">
                 <ViewDetailSectionWithWrapper />
             </ViewDetailSectionWrapper>
-            <OffPlanSectionWrapper>
-                <OffPlanSectionWithWrapper/>
+            <OffPlanSectionWrapper id="fullpage_4">
+                <OffPlanSectionWithWrapper />
             </OffPlanSectionWrapper>
         </main>
     )
