@@ -16,7 +16,6 @@ export const FullPageWrapper = styled.section`
 `
 
 export const HeroSectionWraper = styled.section`
-    background-size:cover;
     display:flex;
     flex-direction:row;
     align-items:center;
